@@ -12,4 +12,24 @@ document.addEventListener("DOMContentLoaded", () => {
       toyForm.style.display = "none";
     }
   });
+
+  fetchToys()
+
+
 });
+
+function fetchToys() {
+  fetch('http://localhost:3000/toys')
+  .then(resp => resp.json())
+  .then(toys => renderToys(toys));
+}
+
+function renderToys(toys) {
+  const toy_card = document.getElementById('toy-collection')
+  toys.forEach(toy => {
+    const toyDiv = document.createElement('div')
+    // toy.classList.add("card")
+    div = `${toy}`
+    toy_card.appendChild(toyDiv)
+  })
+}
